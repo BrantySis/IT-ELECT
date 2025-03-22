@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/courses">Course Manager</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center text-primary mb-4">Add New Course</h2>
+
+            <form th:action="@{/courses/save}" th:object="${course}" method="post">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Course Name:</label>
+                    <input type="text" th:field="*{name}" class="form-control" placeholder="Enter course name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Author:</label>
+                    <input type="text" th:field="*{author}" class="form-control" placeholder="Enter author's name" required>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="/courses" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Save Course</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
